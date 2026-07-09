@@ -1264,4 +1264,4 @@ By taking the Top 1000 most frequently executed queries, the package guarantees 
 
 ## License
 
-MIT — © Kombee Technologies 2026
+MIT — © Kombee Technologies
