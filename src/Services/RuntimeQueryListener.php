@@ -175,7 +175,7 @@ class RuntimeQueryListener
     }
 
     /**
-     * Log an error using the configured Index Advisor log channel and level.
+     * Log an error using the configured Smart Index Advisor log channel and level.
      * Always logs regardless of app.debug — production errors must be visible.
      */
     private function logError(string $message, \Throwable $e, array $context = []): void

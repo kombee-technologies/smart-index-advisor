@@ -46,7 +46,7 @@ class ReconcileCommand extends Command
 
         $this->info('');
         $this->info('╔══════════════════════════════════════════════╗');
-        $this->info('║   Index Advisor — Live Schema Reconcile      ║');
+        $this->info('║   Smart Index Advisor — Live Schema Reconcile      ║');
         $this->info('╚══════════════════════════════════════════════╝');
         $this->info('');
 

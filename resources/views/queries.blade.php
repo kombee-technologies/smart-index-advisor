@@ -1,6 +1,6 @@
-@extends('index-advisor::layout')
+@extends('smart-index-advisor::layout')
 
-@section('title', 'Index Advisor — Query Log')
+@section('title', 'Smart Index Advisor — Query Log')
 @section('topbar-title', 'Query Log')
 
 @section('topbar-actions')
@@ -834,7 +834,7 @@ async function runQueryAnalysis() {
     const skipExplain = document.getElementById('chkSkipExplain')?.checked ?? true;
     const skipLocalDb = document.getElementById('chkSkipLocalDb')?.checked ?? false;
     const flags = [skipCode && 'code skipped', skipExplain && 'EXPLAIN skipped', skipLocalDb && 'local DB skipped'].filter(Boolean);
-    showTerminal('Running Index Advisor pipeline' + (flags.length ? ' (' + flags.join(', ') + ')' : '') + '…');
+    showTerminal('Running Smart Index Advisor pipeline' + (flags.length ? ' (' + flags.join(', ') + ')' : '') + '…');
     try {
         const { ok, status, data, raw } = await parseJsonResponse(await fetch(`${BASE_PATH}/api/run`, {
             method: 'POST', headers: apiHeaders(),

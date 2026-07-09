@@ -1,7 +1,7 @@
-@extends('index-advisor::layout')
+@extends('smart-index-advisor::layout')
 
-@section('title', 'Upload CSV — Index Advisor')
-@section('topbar-title', 'Index Advisor')
+@section('title', 'Upload CSV — Smart Index Advisor')
+@section('topbar-title', 'Smart Index Advisor')
 
 @section('topbar-actions')
 <div class="topbar__toolbar">
@@ -294,7 +294,7 @@ async function runUploadAnalysis() {
     const skipExplain = document.getElementById('chkSkipExplain')?.checked ?? true;
     const skipLocalDb = document.getElementById('chkSkipLocalDb')?.checked ?? false;
     const flags = [skipCode && 'code skipped', skipExplain && 'EXPLAIN skipped', skipLocalDb && 'local DB skipped'].filter(Boolean);
-    showTerminal('Running Index Advisor pipeline' + (flags.length ? ' (' + flags.join(', ') + ')' : '') + '…');
+    showTerminal('Running Smart Index Advisor pipeline' + (flags.length ? ' (' + flags.join(', ') + ')' : '') + '…');
     try {
         const { ok, status, data, raw } = await parseJsonResponse(await fetch(`${BASE_PATH}/api/run`, {
             method: 'POST', headers: apiHeaders(),
@@ -458,7 +458,7 @@ function addLog(filename, isSuccess, logText) {
             <span class="import-console__status-text" style="color:${statusColor}">${statusLabel}</span>
         </div>
         <div class="import-console__terminal">
-            <div class="import-console__banner-box">Index Advisor — Import Stats</div>
+            <div class="import-console__banner-box">Smart Index Advisor — Import Stats</div>
             <pre class="import-console__line ${isSuccess ? 'import-console__line--success' : 'import-console__line--error'}">${escapeHtml(logText)}</pre>
         </div>`;
     logList.insertBefore(card, logList.firstChild);

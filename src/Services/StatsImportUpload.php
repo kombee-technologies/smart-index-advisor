@@ -27,7 +27,7 @@ class StatsImportUpload
     public function store(UploadedFile $file): string
     {
         $extension = $this->resolveSafeExtension($file);
-        $directory = storage_path('app/index-advisor-uploads');
+        $directory = storage_path('app/smart-index-advisor-uploads');
 
         if (! is_dir($directory) && ! mkdir($directory, 0755, true) && ! is_dir($directory)) {
             throw new \RuntimeException('Unable to create upload directory.');

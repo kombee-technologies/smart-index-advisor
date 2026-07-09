@@ -28,7 +28,7 @@ class IndexAdvisorController extends Controller
 
     public function index()
     {
-        return view('index-advisor::dashboard', array_merge($this->viewData(), [
+        return view('smart-index-advisor::dashboard', array_merge($this->viewData(), [
             'active' => 'recommendations',
             'showActions' => true,
         ]));
@@ -36,21 +36,21 @@ class IndexAdvisorController extends Controller
 
     public function migrationsPage()
     {
-        return view('index-advisor::migrations', array_merge($this->viewData(), [
+        return view('smart-index-advisor::migrations', array_merge($this->viewData(), [
             'active' => 'migrations',
         ]));
     }
 
     public function queriesPage()
     {
-        return view('index-advisor::queries', array_merge($this->viewData(), [
+        return view('smart-index-advisor::queries', array_merge($this->viewData(), [
             'active' => 'queries',
         ]));
     }
 
     public function overviewPage()
     {
-        return view('index-advisor::overview', array_merge($this->viewData(), [
+        return view('smart-index-advisor::overview', array_merge($this->viewData(), [
             'active' => 'overview',
         ]));
     }
@@ -425,7 +425,7 @@ class IndexAdvisorController extends Controller
     }
 
     /**
-     * Runtime queries excluding Telescope and Index Advisor internal traffic.
+     * Runtime queries excluding Telescope and Smart Index Advisor internal traffic.
      */
     private function applicationQueriesQuery()
     {
@@ -654,7 +654,7 @@ class IndexAdvisorController extends Controller
      */
     public function showUploadForm()
     {
-        return view('index-advisor::upload', array_merge($this->viewData(), ['active' => 'upload']));
+        return view('smart-index-advisor::upload', array_merge($this->viewData(), ['active' => 'upload']));
     }
 
     /**
@@ -756,7 +756,7 @@ class IndexAdvisorController extends Controller
 
         $recommendations = $query->get();
 
-        $filename = 'index-advisor-report-' . now()->format('Y-m-d_His') . '.csv';
+        $filename = 'smart-index-advisor-report-' . now()->format('Y-m-d_His') . '.csv';
 
         $headers = [
             'Content-Type'        => 'text/csv; charset=UTF-8',

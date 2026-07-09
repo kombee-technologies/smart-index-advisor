@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index Advisor — EXPLAIN Plan</title>
+    <title>Smart Index Advisor — EXPLAIN Plan</title>
     <style>
         :root {
             --bg: #0f172a; --surface: #1e293b; --surface-2: #334155; --border: #475569;
@@ -37,7 +37,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>🏗️ Index Advisor</h1>
+        <h1>🏗️ Smart Index Advisor</h1>
     </div>
 
     <div class="container">

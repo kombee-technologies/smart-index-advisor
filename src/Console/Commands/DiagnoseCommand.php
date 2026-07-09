@@ -34,7 +34,7 @@ class DiagnoseCommand extends Command
     {
         $this->info('');
         $this->info('╔══════════════════════════════════════════════╗');
-        $this->info('║     Index Advisor — Diagnosis Report         ║');
+        $this->info('║     Smart Index Advisor — Diagnosis Report         ║');
         $this->info('╚══════════════════════════════════════════════╝');
         $this->info('');
 

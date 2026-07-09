@@ -51,14 +51,14 @@ class PurgeCommand extends Command
             $this->warn('⚠️  This will DELETE ALL rows from all five index_advisor_* tables.');
             $this->warn('    This cannot be undone. All recommendations, query logs, and EXPLAIN plans will be lost.');
 
-            if (! $this->confirm('Are you sure you want to truncate all Index Advisor tables?', false)) {
+            if (! $this->confirm('Are you sure you want to truncate all Smart Index Advisor tables?', false)) {
                 $this->info('Aborted.');
 
                 return Command::SUCCESS;
             }
         }
 
-        $this->info('Truncating all Index Advisor tables...');
+        $this->info('Truncating all Smart Index Advisor tables...');
 
         $driver = DB::getDriverName();
         $deleted = 0;

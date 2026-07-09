@@ -1,7 +1,7 @@
-@extends('index-advisor::layout')
+@extends('smart-index-advisor::layout')
 
-@section('title', 'Index Advisor — Generate Migrations')
-@section('topbar-title', 'Index Advisor')
+@section('title', 'Smart Index Advisor — Generate Migrations')
+@section('topbar-title', 'Smart Index Advisor')
 
 @section('topbar-actions')
 <div class="topbar__toolbar">
@@ -236,7 +236,7 @@
 <section class="migration-header">
     <div class="migration-header__top">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-            <span>Index Advisor</span>
+            <span>Smart Index Advisor</span>
             <svg class="breadcrumb__sep" viewBox="0 0 5 8" fill="currentColor"><path d="M0 0l5 4-5 4V0z"/></svg>
             <span class="breadcrumb__current">Migration</span>
         </nav>
@@ -627,7 +627,7 @@ async function runMigAnalysis() {
     const skipExplain = document.getElementById('chkSkipExplain')?.checked ?? true;
     const skipLocalDb = document.getElementById('chkSkipLocalDb')?.checked ?? false;
     const flags = [skipCode && 'code skipped', skipExplain && 'EXPLAIN skipped', skipLocalDb && 'local DB skipped'].filter(Boolean);
-    showTerminal('Running Index Advisor pipeline' + (flags.length ? ' (' + flags.join(', ') + ')' : '') + '…');
+    showTerminal('Running Smart Index Advisor pipeline' + (flags.length ? ' (' + flags.join(', ') + ')' : '') + '…');
     try {
         const { ok, data, status, raw } = await parseJsonResponse(await fetch(`${BASE_PATH}/api/run`, {
             method: 'POST', headers: apiHeaders(),

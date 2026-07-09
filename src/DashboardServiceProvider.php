@@ -13,7 +13,7 @@ class DashboardServiceProvider extends ServiceProvider
             return;
         }
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'index-advisor');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'smart-index-advisor');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         Gate::define('viewIndexAdvisor', function ($user = null) {

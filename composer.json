@@ -1,6 +1,6 @@
 {
-  "name": "kombee-technologies/laravel-index-advisor",
-  "description": "Production automated Database Index Advisor for Laravel.",
+  "name": "kombee-technologies/smart-index-advisor",
+  "description": "Production automated Smart Index Advisor for Laravel.",
   "type": "library",
   "license": "MIT",
   "authors": [

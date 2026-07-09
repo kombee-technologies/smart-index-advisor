@@ -12,7 +12,7 @@ class StatusCommand extends Command
 {
     protected $signature = 'index-advisor:status';
 
-    protected $description = 'Show whether Index Advisor HTTP query logging is active and table row counts';
+    protected $description = 'Show whether Smart Index Advisor HTTP query logging is active and table row counts';
 
     public function handle(): int
     {
@@ -22,7 +22,7 @@ class StatusCommand extends Command
         $telescopeSkipAll = (bool) config('index_advisor.query_logging.skip_when_telescope_recording', false);
 
         $this->info('');
-        $this->info('Index Advisor — runtime logging status');
+        $this->info('Smart Index Advisor — runtime logging status');
         $this->info('────────────────────────────────────');
 
         $this->line('  Profile:              '.$profile);

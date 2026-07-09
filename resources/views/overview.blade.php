@@ -1,8 +1,8 @@
-@extends('index-advisor::layout')
+@extends('smart-index-advisor::layout')
 
-@section('title', 'Index Advisor — Overview')
+@section('title', 'Smart Index Advisor — Overview')
 
-@section('topbar-title', 'Index Advisor')
+@section('topbar-title', 'Smart Index Advisor')
 
 @section('topbar-actions')
 <div class="topbar__toolbar">
@@ -661,7 +661,7 @@
         const skipExplain = document.getElementById('chkSkipExplain')?.checked ?? true;
         const skipLocalDb = document.getElementById('chkSkipLocalDb')?.checked ?? false;
         const flags = [skipCode && 'code skipped', skipExplain && 'EXPLAIN skipped', skipLocalDb && 'local DB skipped'].filter(Boolean);
-        showTerminal('Running Index Advisor pipeline' + (flags.length ? ' (' + flags.join(', ') + ')' : '') + '…');
+        showTerminal('Running Smart Index Advisor pipeline' + (flags.length ? ' (' + flags.join(', ') + ')' : '') + '…');
         try {
             const { ok, status, data, raw } = await parseJsonResponse(await fetch(`${BASE_PATH}/api/run`, {
                 method: 'POST', headers: apiHeaders(),
@@ -869,7 +869,7 @@
             const recRows     = (s.recommendations || []).map(r => [r.table_name, r.column_name, r.index_type, r.score]);
 
             const sections = [
-                { id: 'tab-columns',     title: 'Index Advisor Columns',     subtitle: `Tracked columns from your Laravel codebase · ${colRows.length} / ${t.columns ?? 0} rows`,     html: renderAdvisorTable(['Column', 'Table', 'Clause', 'Source file'], ['col-column', 'col-table', 'col-clause', 'col-source'], colRows, 'No code-scan columns yet. Run Analysis or php artisan index-advisor:analyze-code.', 'columns') },
+                { id: 'tab-columns',     title: 'Smart Index Advisor Columns',     subtitle: `Tracked columns from your Laravel codebase · ${colRows.length} / ${t.columns ?? 0} rows`,     html: renderAdvisorTable(['Column', 'Table', 'Clause', 'Source file'], ['col-column', 'col-table', 'col-clause', 'col-source'], colRows, 'No code-scan columns yet. Run Analysis or php artisan index-advisor:analyze-code.', 'columns') },
                 { id: 'tab-queries',     title: 'Advisor Queries',           subtitle: `Runtime queries · ${queryRows.length} / ${t.queries ?? 0} rows`,                               html: renderAdvisorTable(['Executions', 'Total ms', 'Max ms', 'SQL'], ['col-exec', 'col-ms', 'col-ms', 'col-sql'], queryRows, 'No runtime queries yet. Enable INDEX_ADVISOR_ENABLED and use the app.', 'queries') },
                 { id: 'tab-query-stats', title: 'Query Stats',               subtitle: `Aggregate statistics · ${statRows.length} / ${t.query_stats ?? 0} rows`,                      html: renderAdvisorTable(['Source', 'Driver', 'Avg ms', 'SQL'], ['col-source-type', 'col-driver', 'col-ms', 'col-sql'], statRows, 'No slow-log stats yet. Run Analysis or php artisan index-advisor:ingest-slow-log.', 'query_stats') },
                 { id: 'tab-explains',    title: 'Advisor Explains',          subtitle: `EXPLAIN plan results · ${explainRows.length} / ${t.explains ?? 0} rows`,                       html: renderAdvisorTable(['Scan', 'Driver', 'Analyzed', 'SQL / fingerprint'], ['col-scan', 'col-driver', 'col-time', 'col-sql'], explainRows, 'No EXPLAIN plans yet. Uncheck "Skip EXPLAIN" and Run Analysis.', 'explains') },

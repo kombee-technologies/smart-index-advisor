@@ -18,22 +18,22 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Install all of the Index Advisor resources';
+    protected $description = 'Install all of the Smart Index Advisor resources';
 
     /**
      * Execute the console command.
      */
     public function handle(): void
     {
-        $this->comment('Publishing Index Advisor Configuration...');
-        $this->callSilent('vendor:publish', ['--tag' => 'index-advisor-config']);
+        $this->comment('Publishing Smart Index Advisor Configuration...');
+        $this->callSilent('vendor:publish', ['--tag' => 'smart-index-advisor-config']);
 
-        $this->comment('Publishing Index Advisor Service Provider...');
-        $this->callSilent('vendor:publish', ['--tag' => 'index-advisor-provider']);
+        $this->comment('Publishing Smart Index Advisor Service Provider...');
+        $this->callSilent('vendor:publish', ['--tag' => 'smart-index-advisor-provider']);
 
-        $this->comment('Publishing Index Advisor Migrations...');
-        $this->callSilent('vendor:publish', ['--tag' => 'index-advisor']);
+        $this->comment('Publishing Smart Index Advisor Migrations...');
+        $this->callSilent('vendor:publish', ['--tag' => 'smart-index-advisor']);
 
-        $this->info('Index Advisor scaffolding installed successfully.');
+        $this->info('Smart Index Advisor scaffolding installed successfully.');
     }
 }

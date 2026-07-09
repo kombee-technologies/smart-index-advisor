@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Index Advisor')</title>
-    @include('index-advisor::partials.theme-styles')
+    <title>@yield('title', 'Smart Smart Index Advisor')</title>
+    @include('smart-index-advisor::partials.theme-styles')
     @stack('head')
 </head>
 <body>
@@ -51,7 +51,7 @@
 
         {{-- Top bar --}}
         <header class="topbar">
-            <span class="topbar__title">@yield('topbar-title', 'Index Advisor')</span>
+            <span class="topbar__title">@yield('topbar-title', 'Smart Index Advisor')</span>
             <div class="topbar__actions">
                 @yield('topbar-actions')
             </div>

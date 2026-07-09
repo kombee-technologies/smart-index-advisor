@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Create Index Advisor tracking tables.
+ * Create Smart Index Advisor tracking tables.
  *
  * Each Schema::create call is guarded by a hasTable() check so the migration
  * is idempotent — safe to re-run if a previous attempt partially failed.
@@ -15,7 +15,7 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     * Creates all five Index Advisor tracking tables.
+     * Creates all five Smart Index Advisor tracking tables.
      */
     public function up(): void
     {

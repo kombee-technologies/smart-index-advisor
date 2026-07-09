@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Marks the current request so the Index Advisor query listener skips logging
+ * Marks the current request so the Smart Index Advisor query listener skips logging
  * (avoids feedback loops when the dashboard reads index_advisor_* tables).
  */
 class PreventIndexAdvisorLogging

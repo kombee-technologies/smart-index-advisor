@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Kombee\IndexAdvisor\Services\ScoringService;
 
 /**
- * Master orchestrator — runs the full Index Advisor pipeline in sequence.
+ * Master orchestrator — runs the full Smart Index Advisor pipeline in sequence.
  *
  * Pipeline steps:
  *   1. index-advisor:analyze-code      (static PHP scan — skipped with --skip-code-analysis)
@@ -33,7 +33,7 @@ class RunAdvisorCommand extends Command
                             {--skip-code-analysis  : Skip local codebase scan (use when running in production-import mode with imported CSV stats)}
                             {--skip-local-db       : Skip ingesting from local pg_stat_* / slow log / performance_schema (use this when you have imported CSV data and do NOT want local DB stats to overwrite them)}';
 
-    protected $description = 'Run the full Index Advisor pipeline (analyze → ingest → explain → score → report → migrate)';
+    protected $description = 'Run the full Smart Index Advisor pipeline (analyze → ingest → explain → score → report → migrate)';
 
     public function __construct(private ScoringService $scorer)
     {
@@ -50,7 +50,7 @@ class RunAdvisorCommand extends Command
 
         $this->info('');
         $this->info('╔══════════════════════════════════════════════╗');
-        $this->info('║       Index Advisor — Full Pipeline Run      ║');
+        $this->info('║       Smart Index Advisor — Full Pipeline Run      ║');
         $this->info('╚══════════════════════════════════════════════╝');
         $this->info('');
 

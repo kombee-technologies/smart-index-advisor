@@ -17,7 +17,7 @@ class ReportCommand extends Command
 {
     protected $signature = 'index-advisor:report {--email= : Override report_email config}';
 
-    protected $description = 'Print index advisor recommendations report and optionally email it';
+    protected $description = 'Print Smart Index Advisor recommendations report and optionally email it';
 
     public function handle(): int
     {
@@ -87,7 +87,7 @@ class ReportCommand extends Command
 
             Mail::html($html, function ($message) use ($to, $critical) {
                 $message->to($to)
-                    ->subject("[Index Advisor] Weekly Report - {$critical} CRITICAL issue(s) - ".now()->toDateString());
+                    ->subject("[Smart Index Advisor] Weekly Report - {$critical} CRITICAL issue(s) - ".now()->toDateString());
             });
 
             $this->info("Report emailed to {$to}");
@@ -117,7 +117,7 @@ class ReportCommand extends Command
 
         return <<<HTML
 <html><body style='font-family:sans-serif;color:#333'>
-<h2>Index Advisor - Weekly Report</h2>
+<h2>Smart Index Advisor - Weekly Report</h2>
 <p>Generated: {$this->now()}</p>
 <p>
   <strong style='color:#ff4444'>CRITICAL: {$critical}</strong> &nbsp;

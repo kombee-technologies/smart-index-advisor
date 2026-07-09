@@ -10,7 +10,7 @@ use Kombee\IndexAdvisor\Services\RecommendationReconciler;
 
 /**
  * Imports query performance statistics exported from a production or UAT database
- * into the local Index Advisor tables for offline analysis.
+ * into the local Smart Index Advisor tables for offline analysis.
  *
  * Supports three types of production data export (auto-detected by CSV/JSON headers):
  *
@@ -84,7 +84,7 @@ class ImportStatsCommand extends Command
 
         $this->info('');
         $this->info('╔══════════════════════════════════════════════╗');
-        $this->info('║    Index Advisor — Import Stats               ║');
+        $this->info('║    Smart Index Advisor — Import Stats               ║');
         $this->info('╚══════════════════════════════════════════════╝');
         $this->info('');
         $this->info("📂 File    : {$path}");

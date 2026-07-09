@@ -1,4 +1,4 @@
-# Laravel Index Advisor
+# Smart Index Advisor
 
 **Automated database index optimizer for Laravel.**  
 Analyses your PHP codebase, runtime query logs, and production DB statistics to recommend, score, and generate migration files for missing indexes — and flag unused ones for removal.
@@ -52,7 +52,7 @@ If you are testing this package from a specific Git repository, add the followin
     }
 ],
 "require": {
-    "kombee-technologies/laravel-index-advisor": "dev-main"
+    "kombee-technologies/smart-index-advisor": "dev-main"
 }
 ```
 
@@ -61,13 +61,13 @@ _(Replace the URL with your actual repository URL, and `dev-main` with your desi
 Then, run:
 
 ```bash
-composer update kombee-technologies/laravel-index-advisor
+composer update kombee-technologies/smart-index-advisor
 ```
 
 > **Note on Tokens:** If the repository is private, Composer will ask for a token to download it. You can generate a Personal Access Token in GitHub and paste it when prompted (e.g., `ghp_...`).
 >
 > **Troubleshooting:** If changes are not reflecting, delete the vendor package folder to force a fresh download:
-> Delete the folder: `vendor/kombee-technologies/laravel-index-advisor`
+> Delete the folder: `vendor/kombee-technologies/smart-index-advisor`
 > And re-run `composer update`.
 
 ### 2. Install the Package
@@ -102,7 +102,7 @@ The `install` command copies `app/Providers/IndexAdvisorServiceProvider.php` so 
    "extra": {
        "laravel": {
            "dont-discover": [
-               "kombee-technologies/laravel-index-advisor"
+               "kombee-technologies/smart-index-advisor"
            ]
        }
    }
@@ -148,7 +148,7 @@ After publishing, edit `config/index_advisor.php`. All values can also be set vi
 | --------------------------------------------- | ------------------------------------------- | ------------------------- | ------------------------------------------------------------------ |
 | `enabled`                                     | `INDEX_ADVISOR_ENABLED`                     | `false`                   | Enable/disable runtime query logging                               |
 | `profile`                                     | `INDEX_ADVISOR_PROFILE`                     | `production`              | Display-only environment label (does not affect settings)          |
-| `log_channel`                                 | `INDEX_ADVISOR_LOG_CHANNEL`                 | `null` (app default)      | Dedicated log channel for Index Advisor warnings/errors            |
+| `log_channel`                                 | `INDEX_ADVISOR_LOG_CHANNEL`                 | `null` (app default)      | Dedicated log channel for Smart Index Advisor warnings/errors            |
 | `log_level`                                   | `INDEX_ADVISOR_LOG_LEVEL`                   | `warning`                 | Minimum log level (`debug`–`critical`)                             |
 | `min_executions`                              | `INDEX_ADVISOR_MIN_EXEC`                    | `10`                      | Minimum times a query must run before it's analyzed                |
 | `slow_query_ms`                               | `INDEX_ADVISOR_SLOW_MS`                     | `500`                     | Queries slower than this (ms) receive the slow-query scoring bonus |
@@ -828,7 +828,7 @@ INDEX_ADVISOR_PATH=my-index-advisor
 
 ## Logging Configuration
 
-Index Advisor logs warnings and errors to a configurable channel and level:
+Smart Index Advisor logs warnings and errors to a configurable channel and level:
 
 ```env
 # Use a dedicated log channel to avoid flooding the main application log

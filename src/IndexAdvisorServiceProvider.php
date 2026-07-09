@@ -66,7 +66,7 @@ class IndexAdvisorServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/index_advisor.php' => config_path('index_advisor.php'),
-        ], 'index-advisor-config');
+        ], 'smart-index-advisor-config');
 
         if (! $this->migrationExists('create_index_advisor_tables.php')) {
             $this->publishes([
@@ -82,7 +82,7 @@ class IndexAdvisorServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../stubs/IndexAdvisorServiceProvider.stub' => app_path('Providers/IndexAdvisorServiceProvider.php'),
-        ], 'index-advisor-provider');
+        ], 'smart-index-advisor-provider');
 
         $this->commands([
             AnalyzeCodebaseCommand::class,

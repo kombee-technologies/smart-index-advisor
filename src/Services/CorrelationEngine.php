@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 /**
- * Correlation Engine — The core of the hybrid index advisory system.
+ * Correlation Engine — The core of the hybrid Smart Index Advisory system.
  *
  * Matches fingerprints across three independent data sources:
  *   1. Static code patterns  (index_advisor_code_patterns)

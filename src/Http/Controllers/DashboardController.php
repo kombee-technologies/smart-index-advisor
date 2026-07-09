@@ -9,7 +9,7 @@ use Kombee\IndexAdvisor\Services\RecommendationEngine;
 use Kombee\IndexAdvisor\Services\CorrelationEngine;
 
 /**
- * Dashboard Controller — Serves the Index Advisor web UI.
+ * Dashboard Controller — Serves the Smart Index Advisor web UI.
  *
  * Provides views for:
  *   - Overview dashboard with key metrics
@@ -58,7 +58,7 @@ class DashboardController extends Controller
             ->limit(10)
             ->get();
 
-        return view('index-advisor::dashboard', compact(
+        return view('smart-index-advisor::dashboard', compact(
             'stats',
             'topSlowQueries',
             'topRecommendations',
@@ -88,7 +88,7 @@ class DashboardController extends Controller
 
         $recommendations = $query->paginate(25);
 
-        return view('index-advisor::recommendations', compact('recommendations'));
+        return view('smart-index-advisor::recommendations', compact('recommendations'));
     }
 
     /**
@@ -108,7 +108,7 @@ class DashboardController extends Controller
             abort(404, 'No explain report found for this fingerprint.');
         }
 
-        return view('index-advisor::explain', compact('report', 'query'));
+        return view('smart-index-advisor::explain', compact('report', 'query'));
     }
 
     /**
@@ -125,7 +125,7 @@ class DashboardController extends Controller
             ->orderBy('table_name')
             ->paginate(50);
 
-        return view('index-advisor::code-analysis', compact('patterns'));
+        return view('smart-index-advisor::code-analysis', compact('patterns'));
     }
 
     /**

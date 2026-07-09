@@ -8,9 +8,9 @@ use Kombee\IndexAdvisor\IndexAdvisorServiceProvider as BaseIndexAdvisorServicePr
 class IndexAdvisorServiceProvider extends BaseIndexAdvisorServiceProvider
 {
     /**
-     * Register the Index Advisor gate.
+     * Register the Smart Index Advisor gate.
      *
-     * This gate determines who can access the Index Advisor dashboard in non-local environments.
+     * This gate determines who can access the Smart Index Advisor dashboard in non-local environments.
      */
     protected function gate(): void
     {

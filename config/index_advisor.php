@@ -63,7 +63,7 @@ return [
     | Logging
     |--------------------------------------------------------------------------
     |
-    | The log channel used for all Index Advisor warnings and errors. When null,
+    | The log channel used for all Smart Index Advisor warnings and errors. When null,
     | the application's default channel is used. Set to a dedicated channel
     | (e.g. 'index-advisor') to avoid flooding the main application log.
     |
