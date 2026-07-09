@@ -40,9 +40,37 @@ Supports **MySQL**, **PostgreSQL**, **SQL Server**, and **SQLite**.
 
 ## Installation
 
-### 1. Add the package via Custom Repository (VCS)
+### 1. Require the package
 
-If you are testing this package from a specific Git repository, add the following to your `composer.json`:
+#### Option A — Stable release (recommended)
+
+Install a tagged release using the `^1.0` version constraint:
+
+```bash
+composer require kombee-technologies/smart-index-advisor:^1.0
+```
+
+Or add it manually to your `composer.json` and run `composer update`:
+
+```json
+"require": {
+    "kombee-technologies/smart-index-advisor": "^1.0"
+}
+```
+
+```bash
+composer update kombee-technologies/smart-index-advisor
+```
+
+> **Version constraints:**
+>
+> - `^1.0` — allows `>=1.0.0 <2.0.0` (minor and patch updates, locks major version) — **recommended**
+> - `~1.0` — allows `>=1.0.0 <1.1.0` (patch updates only)
+> - `1.0.*` — exactly `1.0.x`
+
+#### Option B — Development / latest commit
+
+If you want to track the latest commit on `main` (e.g. during development or testing), add the VCS repository and use the `dev-main` constraint:
 
 ```json
 "repositories": [
@@ -52,23 +80,36 @@ If you are testing this package from a specific Git repository, add the followin
     }
 ],
 "require": {
-    "kombee-technologies/smart-index-advisor": "dev-master"
+    "kombee-technologies/smart-index-advisor": "dev-main"
 }
 ```
 
-_(Replace the URL with your actual repository URL, and `dev-main` with your desired branch like `1.x-dev`)_
-
-Then, run:
+Then run:
 
 ```bash
 composer update kombee-technologies/smart-index-advisor
 ```
 
-> **Note on Tokens:** If the repository is private, Composer will ask for a token to download it. You can generate a Personal Access Token in GitHub and paste it when prompted (e.g., `ghp_...`).
+> **Note:** `dev-main` always pulls the latest commit and offers no stability guarantees. Use `^1.0` in production.
+
+#### Upgrading an existing project from `dev-main` to a tagged release
+
+Running `composer update` alone will **not** change your constraint — it only resolves within whatever you have declared. To switch to a tagged release, run:
+
+```bash
+composer require kombee-technologies/smart-index-advisor:^1.0
+```
+
+This updates both `composer.json` and `composer.lock` in one step.
+
+> **Note on Tokens:** If the repository is private, Composer will ask for a Personal Access Token from GitHub when prompted (e.g., `ghp_...`).
 >
-> **Troubleshooting:** If changes are not reflecting, delete the vendor package folder to force a fresh download:
-> Delete the folder: `vendor/kombee-technologies/smart-index-advisor`
-> And re-run `composer update`.
+> **Troubleshooting:** If changes are not reflecting after an update, delete the vendor folder and re-download:
+>
+> ```bash
+> rm -rf vendor/kombee-technologies/smart-index-advisor
+> composer update kombee-technologies/smart-index-advisor
+> ```
 
 ### 2. Install the Package
 
@@ -148,7 +189,7 @@ After publishing, edit `config/index_advisor.php`. All values can also be set vi
 | --------------------------------------------- | ------------------------------------------- | ------------------------- | ------------------------------------------------------------------ |
 | `enabled`                                     | `INDEX_ADVISOR_ENABLED`                     | `false`                   | Enable/disable runtime query logging                               |
 | `profile`                                     | `INDEX_ADVISOR_PROFILE`                     | `production`              | Display-only environment label (does not affect settings)          |
-| `log_channel`                                 | `INDEX_ADVISOR_LOG_CHANNEL`                 | `null` (app default)      | Dedicated log channel for Smart Index Advisor warnings/errors            |
+| `log_channel`                                 | `INDEX_ADVISOR_LOG_CHANNEL`                 | `null` (app default)      | Dedicated log channel for Smart Index Advisor warnings/errors      |
 | `log_level`                                   | `INDEX_ADVISOR_LOG_LEVEL`                   | `warning`                 | Minimum log level (`debug`–`critical`)                             |
 | `min_executions`                              | `INDEX_ADVISOR_MIN_EXEC`                    | `10`                      | Minimum times a query must run before it's analyzed                |
 | `slow_query_ms`                               | `INDEX_ADVISOR_SLOW_MS`                     | `500`                     | Queries slower than this (ms) receive the slow-query scoring bonus |
