@@ -70,7 +70,7 @@ composer update kombee-technologies/smart-index-advisor
 
 #### Option B — Development / latest commit
 
-If you want to track the latest commit on `main` (e.g. during development or testing), add the VCS repository and use the `dev-main` constraint:
+If you want to track the latest commit on `master` (e.g. during development or testing), add the VCS repository and use the `dev-master` constraint:
 
 ```json
 "repositories": [
@@ -80,7 +80,7 @@ If you want to track the latest commit on `main` (e.g. during development or tes
     }
 ],
 "require": {
-    "kombee-technologies/smart-index-advisor": "dev-main"
+    "kombee-technologies/smart-index-advisor": "dev-master"
 }
 ```
 
@@ -90,9 +90,9 @@ Then run:
 composer update kombee-technologies/smart-index-advisor
 ```
 
-> **Note:** `dev-main` always pulls the latest commit and offers no stability guarantees. Use `^1.0` in production.
+> **Note:** `dev-master` always pulls the latest commit and offers no stability guarantees. Use `^1.0` in production.
 
-#### Upgrading an existing project from `dev-main` to a tagged release
+#### Upgrading an existing project from `dev-master` to a tagged release
 
 Running `composer update` alone will **not** change your constraint — it only resolves within whatever you have declared. To switch to a tagged release, run:
 
