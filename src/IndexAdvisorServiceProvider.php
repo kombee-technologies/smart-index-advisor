@@ -71,13 +71,13 @@ class IndexAdvisorServiceProvider extends ServiceProvider
         if (! $this->migrationExists('create_index_advisor_tables.php')) {
             $this->publishes([
                 __DIR__.'/../database/migrations/create_index_advisor_tables.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_index_advisor_tables.php'),
-            ], 'index-advisor');
+            ], 'smart-index-advisor');
         }
 
         if (! $this->migrationExists('update_index_advisor_tables.php')) {
             $this->publishes([
                 __DIR__.'/../database/migrations/update_index_advisor_tables.php.stub' => database_path('migrations/'.date('Y_m_d_His', time() + 1).'_update_index_advisor_tables.php'),
-            ], 'index-advisor');
+            ], 'smart-index-advisor');
         }
 
         $this->publishes([
