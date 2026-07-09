@@ -52,7 +52,7 @@ If you are testing this package from a specific Git repository, add the followin
     }
 ],
 "require": {
-    "kombee-technologies/smart-index-advisor": "dev-main"
+    "kombee-technologies/smart-index-advisor": "dev-master"
 }
 ```
 
