@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Gate;
+use Kombee\IndexAdvisor\IndexAdvisorServiceProvider as BaseIndexAdvisorServiceProvider;
+
+class IndexAdvisorServiceProvider extends BaseIndexAdvisorServiceProvider
+{
+    /**
+     * Register the Index Advisor gate.
+     *
+     * This gate determines who can access the Index Advisor dashboard in non-local environments.
+     */
+    protected function gate(): void
+    {
+        Gate::define('viewIndexAdvisor', function ($user) {
+            return in_array($user->email, [
+                // 'admin@example.com',
+            ]);
+        });
+    }
+}

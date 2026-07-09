@@ -1,0 +1,57 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+/**
+ * Fixes index_advisor_explains table for existing installs:
+ *   - Adds missing `driver` column
+ *   - Renames `explain_json` → `raw_plan` to match service provider writes
+ *
+ * Safe to run on fresh installs (all checks are conditional).
+ */
+return new class extends Migration
+{
+    public function up(): void
+    {
+        if (! Schema::hasTable('index_advisor_explains')) {
+            return; // Fresh install — base migration handles it
+        }
+
+        // Add driver column if missing
+        if (! Schema::hasColumn('index_advisor_explains', 'driver')) {
+            Schema::table('index_advisor_explains', function (Blueprint $table) {
+                $table->string('driver')->nullable()->after('fingerprint');
+            });
+        }
+
+        // Rename explain_json → raw_plan if old column name exists
+        if (Schema::hasColumn('index_advisor_explains', 'explain_json')
+            && ! Schema::hasColumn('index_advisor_explains', 'raw_plan')) {
+            Schema::table('index_advisor_explains', function (Blueprint $table) {
+                $table->renameColumn('explain_json', 'raw_plan');
+            });
+        }
+    }
+
+    public function down(): void
+    {
+        if (! Schema::hasTable('index_advisor_explains')) {
+            return;
+        }
+
+        if (Schema::hasColumn('index_advisor_explains', 'driver')) {
+            Schema::table('index_advisor_explains', function (Blueprint $table) {
+                $table->dropColumn('driver');
+            });
+        }
+
+        if (Schema::hasColumn('index_advisor_explains', 'raw_plan')
+            && ! Schema::hasColumn('index_advisor_explains', 'explain_json')) {
+            Schema::table('index_advisor_explains', function (Blueprint $table) {
+                $table->renameColumn('raw_plan', 'explain_json');
+            });
+        }
+    }
+};
